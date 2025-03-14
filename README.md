@@ -4,6 +4,13 @@
 
 # Package to generate unique values
 
+<p>
+    <a href="https://github.com/justbetter/laravel-unique-values"><img src="https://img.shields.io/github/actions/workflow/status/justbetter/laravel-unique-values/tests.yml?label=tests&style=flat-square" alt="Tests"></a>
+    <a href="https://github.com/justbetter/laravel-unique-values"><img src="https://img.shields.io/github/actions/workflow/status/justbetter/laravel-unique-values/coverage.yml?label=coverage&style=flat-square" alt="Coverage"></a>
+    <a href="https://github.com/justbetter/laravel-unique-values"><img src="https://img.shields.io/github/actions/workflow/status/justbetter/laravel-unique-values/analyse.yml?label=analysis&style=flat-square" alt="Analysis"></a>
+    <a href="https://github.com/justbetter/laravel-unique-values"><img src="https://img.shields.io/packagist/dt/justbetter/laravel-unique-values?color=blue&style=flat-square" alt="Total downloads"></a>
+</p>
+
 This package generates persistent unique values with support for concurrency utilizing scoped cache locking.
 It stores generated unique values in the database.
 
@@ -23,7 +30,7 @@ This package only supports strings.
 You can install the package via composer:
 
 ```shell
-composer require justbetter/unique-values
+composer require justbetter/laravel-unique-values
 ```
 
 ## Usage
