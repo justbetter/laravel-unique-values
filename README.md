@@ -120,7 +120,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [Vincent Boon](https://github.com/VincentBean)
-- [Ramon Rietdijk](http://github.com/ramonrietdijk)
+- [Ramon Rietdijk](https://github.com/ramonrietdijk)
 - [All Contributors](../../contributors)
 
 ## License

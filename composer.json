@@ -7,6 +7,11 @@
             "name": "Vincent Boon",
             "email": "vincent@justbetter.nl",
             "role": "Developer"
+        },
+        {
+            "name": "Ramon Rietdijk",
+            "email": "ramon@justbetter.nl",
+            "role": "Developer"
         }
     ],
     "require": {
