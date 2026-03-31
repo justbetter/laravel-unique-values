@@ -1,12 +1,11 @@
-name: analyse
+name: rector
 
 on: ['push', 'pull_request']
 
 jobs:
-    test:
+    rector:
+        name: Rector
         runs-on: ubuntu-latest
-
-        name: Analyse
 
         steps:
             - name: Checkout code
@@ -20,7 +19,7 @@ jobs:
                   coverage: none
 
             - name: Install dependencies
-              run: composer update --prefer-stable --prefer-dist --no-interaction
+              run: composer install
 
-            - name: Analyse
-              run: composer analyse
+            - name: Rector
+              run: composer rector
