@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace JustBetter\UniqueValues;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
@@ -7,6 +9,7 @@ use JustBetter\UniqueValues\Actions\DetermineUnique;
 
 class ServiceProvider extends BaseServiceProvider
 {
+    #[\Override]
     public function register(): void
     {
         $this

@@ -1,12 +1,12 @@
-name: coverage
+name: rector
 
 on: ['push', 'pull_request']
 
 jobs:
-    coverage:
+    rector:
         runs-on: ubuntu-latest
 
-        name: Coverage
+        name: Rector
 
         steps:
             -   name: Checkout code
@@ -16,11 +16,11 @@ jobs:
                 uses: shivammathur/setup-php@v2
                 with:
                     php-version: 8.5
-                    extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo, xdebug
-                    coverage: xdebug
+                    extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+                    coverage: none
 
             -   name: Install dependencies
                 run: composer install
 
-            -   name: Coverage
-                run: composer coverage
+            -   name: Rector
+                run: composer rector

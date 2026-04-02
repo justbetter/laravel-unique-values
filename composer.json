@@ -16,15 +16,15 @@
     ],
     "require": {
         "php": "^8.3",
-        "laravel/framework": "^11.0|^12.0"
+        "laravel/framework": "^12.0|^13.0"
     },
     "require-dev": {
-        "larastan/larastan": "^3.0",
-        "laravel/pint": "^1.20",
-        "orchestra/testbench": "^9.0",
-        "pestphp/pest": "^3.7",
+        "larastan/larastan": "^3.9",
+        "laravel/pint": "^1.29",
+        "orchestra/testbench": "^10.11|^11.0",
         "phpstan/phpstan-mockery": "^2.0",
-        "phpunit/phpunit": "^11.5"
+        "phpunit/phpunit": "^12.5|^13.0",
+        "rector/rector": "^2.3"
     },
     "autoload": {
         "psr-4": {
@@ -38,15 +38,17 @@
     },
     "scripts": {
         "test": "phpunit",
-        "coverage": "XDEBUG_MODE=coverage php vendor/bin/pest --coverage --min=100",
+        "coverage": "XDEBUG_MODE=coverage php -d memory_limit=2G vendor/bin/phpunit --coverage-text --only-summary-for-coverage-text | grep -c \"100.00%\" | grep -q \"^3$\" && exit 0 || exit 1",
         "analyse": "phpstan --memory-limit=256M",
         "style": "pint --test",
         "quality": [
             "@style",
             "@analyse",
             "@test",
-            "@coverage"
-        ]
+            "@coverage",
+            "@rector"
+        ],
+        "rector": "rector process --dry-run"
     },
     "config": {
         "sort-packages": true,
