@@ -23,7 +23,7 @@
         "laravel/pint": "^1.29",
         "orchestra/testbench": "^10.11|^11.0",
         "phpstan/phpstan-mockery": "^2.0",
-        "phpunit/phpunit": "^13.0",
+        "phpunit/phpunit": "^12.5|^13.0",
         "rector/rector": "^2.3"
     },
     "autoload": {

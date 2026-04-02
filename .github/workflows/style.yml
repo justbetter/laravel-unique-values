@@ -4,22 +4,23 @@ on: ['push', 'pull_request']
 
 jobs:
     style:
-        name: Style
         runs-on: ubuntu-latest
 
+        name: Style
+
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+            -   name: Checkout code
+                uses: actions/checkout@v4
 
-            - name: Setup PHP
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: 8.5
-                  extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
-                  coverage: none
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: 8.5
+                    extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+                    coverage: none
 
-            - name: Install dependencies
-              run: composer install
+            -   name: Install dependencies
+                run: composer install
 
-            - name: Style
-              run: composer style
+            -   name: Style
+                run: composer style

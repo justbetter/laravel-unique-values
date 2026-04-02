@@ -3,24 +3,32 @@ name: analyse
 on: ['push', 'pull_request']
 
 jobs:
-    test:
+    analyse:
         runs-on: ubuntu-latest
 
-        name: Analyse
+        strategy:
+            fail-fast: true
+            matrix:
+                php: [8.3, 8.4, 8.5]
+                laravel: [12.*, 13.*]
+
+        name: P${{ matrix.php }} - L${{ matrix.laravel }}
 
         steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+            -   name: Checkout code
+                uses: actions/checkout@v4
 
-            - name: Setup PHP
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: 8.5
-                  extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
-                  coverage: none
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: ${{ matrix.php }}
+                    extensions: dom, curl, libxml, mbstring, zip, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick, fileinfo
+                    coverage: none
 
-            - name: Install dependencies
-              run: composer update --prefer-stable --prefer-dist --no-interaction
+            -   name: Install dependencies
+                run: |
+                    composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update
+                    composer install
 
-            - name: Analyse
-              run: composer analyse
+            -   name: Analyse
+                run: composer analyse
